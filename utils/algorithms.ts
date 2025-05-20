@@ -1,3 +1,4 @@
+// CPU Scheduling Algorithms
 export interface Process {
   id: string
   arrivalTime: number
@@ -34,7 +35,7 @@ export function fcfs(processes: Process[]): {
   let totalWaitingTime = 0
   let totalTurnaroundTime = 0
 
-  // Assign colors to processes
+  // Assign colors to processes - use explicit class names
   const colors = [
     "bg-blue-500",
     "bg-green-500",
@@ -484,11 +485,11 @@ export function firstFit(blocks: MemoryBlock[], processes: MemoryProcess[]): Mem
       if (!block.allocated && block.size >= process.size) {
         // Allocate process to this block
         block.allocated = true
-        // block.processId = process.id
+        //block.processId = process.id
         block.fragmentation = block.size - process.size
 
         process.allocated = true
-        // process.blockId = block.id
+       // process.blockId = block.id
 
         successfulAllocations++
         totalFragmentation += block.fragmentation
@@ -554,11 +555,11 @@ export function bestFit(blocks: MemoryBlock[], processes: MemoryProcess[]): Memo
       // Allocate process to the best fit block
       const block = resultBlocks[bestBlockIndex]
       block.allocated = true
-      // block.processId = process.id
+      //block.processId = process.id
       block.fragmentation = block.size - process.size
 
       process.allocated = true
-      // process.blockId = block.id
+      //process.blockId = block.id
 
       successfulAllocations++
       totalFragmentation += block.fragmentation
@@ -622,11 +623,11 @@ export function worstFit(blocks: MemoryBlock[], processes: MemoryProcess[]): Mem
       // Allocate process to the worst fit block
       const block = resultBlocks[worstBlockIndex]
       block.allocated = true
-      // block.processId = process.id
+      //block.processId = process.id
       block.fragmentation = block.size - process.size
 
       process.allocated = true
-      // process.blockId = block.id
+      //process.blockId = block.id
 
       successfulAllocations++
       totalFragmentation += block.fragmentation

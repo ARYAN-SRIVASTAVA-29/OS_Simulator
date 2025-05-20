@@ -1,8 +1,7 @@
 "use client"
 
 import type { DiskRequest } from "@/utils/algorithms"
-import { Line, LineChart, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { Line, LineChart, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, Tooltip } from "recharts"
 
 interface DiskVisualizationProps {
   requests: DiskRequest[]
@@ -39,32 +38,24 @@ export function DiskVisualization({
       <div className="space-y-2">
         <h3 className="text-lg font-medium">Head Movement Visualization</h3>
         <div className="h-64 w-full">
-          <ChartContainer
-            config={{
-              headMovement: {
-                label: "Head Movement",
-                color: "hsl(var(--chart-1))",
-              },
-            }}
-            className="h-full"
-          >
+          <div className="h-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="position" />
                 <YAxis domain={[0, diskSize]} />
-                <ChartTooltip content={<ChartTooltipContent />} />
+                <Tooltip />
                 <Legend />
                 <Line
                   type="monotone"
                   dataKey="trackNumber"
-                  stroke="var(--color-headMovement)"
+                  stroke="#3b82f6"
                   name="Head Position"
                   activeDot={{ r: 8 }}
                 />
               </LineChart>
             </ResponsiveContainer>
-          </ChartContainer>
+          </div>
         </div>
       </div>
 
