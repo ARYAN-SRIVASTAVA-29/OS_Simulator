@@ -74,7 +74,10 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex min-h-screen bg-background">
+        <div className="flex min-h-screen bg-background">
+          <div suppressHydrationWarning={true}>
+            {/* potentially mismatching content */}
+          </div>
       {/* Sidebar for desktop */}
       <aside className="hidden md:flex w-16 lg:w-64 flex-col border-r bg-card">
         <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
